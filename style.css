@@ -57,14 +57,9 @@ letter-spacing:.22em;text-transform:uppercase;color:#D8DCE2}
 .kicker::before{content:"";width:38px;height:5px;background:var(--ember)}
 .hero .name{font-family:"Space Grotesk";font-weight:700;letter-spacing:.3em;
 font-size:clamp(20px,2.6vw,29px);margin-top:30px;color:#FF8A66}
-.hero .name span{display:inline-block;animation:rise .7s var(--ease) both;
-animation-delay:calc(.12s + var(--i)*.045s)}
-@supports((-webkit-background-clip:text) or (background-clip:text)){
-.hero .name{background:linear-gradient(100deg,#FAF8F3 15%,#E4572E 38%,#FFC4AC 50%,#E4572E 62%,#FAF8F3 85%);
-background-size:220% 100%;-webkit-background-clip:text;background-clip:text;
-color:transparent;animation:shine 5.5s linear infinite}
-.hero .name span{color:transparent}}
-@keyframes shine{to{background-position:-220% 0}}
+.hero .name span{display:inline-block;animation:wave 2.8s ease-in-out infinite;
+animation-delay:calc(var(--i)*.09s)}
+@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .hero h1{font-size:clamp(50px,9.5vw,124px);line-height:.99;font-weight:700;
 letter-spacing:-.03em;margin-top:10px;text-wrap:balance}
 .hero h1 .serif-i{color:var(--ember);letter-spacing:-.01em}
