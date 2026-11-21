@@ -38,6 +38,10 @@ padding:7px 16px;font-size:13.5px;font-weight:600;border-radius:2px}
 @media(max-width:620px){.mlinks{gap:15px}.mlinks a.nl{font-size:12.5px}
 .logo b{letter-spacing:.07em;font-size:14.5px}.logo .mark{width:24px;height:24px}
 .mlinks a.cvact{padding:6px 11px}}
+@media(max-width:480px){.menubar .in{padding:0 14px}
+.logo{gap:8px}.logo b{letter-spacing:.03em;font-size:13px}.logo .mark{width:21px;height:21px}
+.mlinks{gap:11px}.mlinks a.nl{font-size:12px}
+.mlinks a.cvact{padding:5px 9px;font-size:12px;white-space:nowrap}}
 /* ---------- hero (H-1..H-6) ---------- */
 .hero{background:var(--deep);color:var(--paper);position:relative;overflow:hidden;
 padding:64px 0 0}
@@ -51,8 +55,16 @@ padding:58px 0 8px;align-items:start}
 .kicker{display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:600;
 letter-spacing:.22em;text-transform:uppercase;color:#D8DCE2}
 .kicker::before{content:"";width:38px;height:5px;background:var(--ember)}
-.hero .name{font-family:"Space Grotesk";font-weight:600;letter-spacing:.3em;
-font-size:clamp(19px,2.4vw,27px);margin-top:30px;color:var(--paper)}
+.hero .name{font-family:"Space Grotesk";font-weight:700;letter-spacing:.3em;
+font-size:clamp(20px,2.6vw,29px);margin-top:30px;color:#FF8A66}
+.hero .name span{display:inline-block;animation:rise .7s var(--ease) both;
+animation-delay:calc(.12s + var(--i)*.045s)}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+.hero .name{background:linear-gradient(100deg,#FAF8F3 15%,#E4572E 38%,#FFC4AC 50%,#E4572E 62%,#FAF8F3 85%);
+background-size:220% 100%;-webkit-background-clip:text;background-clip:text;
+color:transparent;animation:shine 5.5s linear infinite}
+.hero .name span{color:transparent}}
+@keyframes shine{to{background-position:-220% 0}}
 .hero h1{font-size:clamp(50px,9.5vw,124px);line-height:.99;font-weight:700;
 letter-spacing:-.03em;margin-top:10px;text-wrap:balance}
 .hero h1 .serif-i{color:var(--ember);letter-spacing:-.01em}
@@ -65,7 +77,16 @@ font-size:15px;background:var(--ember);color:#fff;transition:transform .2s var(-
 text-decoration:underline;text-decoration-color:var(--ember);text-underline-offset:6px;
 text-decoration-thickness:2px}
 .link-arrow:hover{color:var(--ember)}
-.hero-panel{border:1px solid rgba(250,248,243,.2);background:var(--deep2);margin:0}
+.hero-panel{border:1px solid rgba(250,248,243,.2);background:var(--deep2);margin:0;
+animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hero-panel .ring{transform-box:view-box;transform-origin:322px 74px;
+animation:ringpulse 3.4s ease-in-out infinite}
+@keyframes ringpulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.14);opacity:.3}}
+.hero-panel .tw{animation:twinkle 3.8s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.12}50%{opacity:.95}}
+.hero-panel .core{animation:corepulse 3.4s ease-in-out infinite}
+@keyframes corepulse{0%,100%{opacity:1}50%{opacity:.75}}
 .hero-panel svg{display:block;width:100%;height:auto}
 .hero-panel figcaption{border-top:1px solid rgba(250,248,243,.14);
 padding:10px 16px;font-size:11px;letter-spacing:.24em;color:var(--slate-d);
@@ -221,4 +242,5 @@ text-transform:uppercase;color:var(--slate);margin-bottom:5px}
 .js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none}
-.anim{animation:none}html{scroll-behavior:auto}}
+.anim,.hero-panel,.hero-panel .ring,.hero-panel .tw,.hero-panel .core,.hero .name,.hero .name span{animation:none!important}
+html{scroll-behavior:auto}}
